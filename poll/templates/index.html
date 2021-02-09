@@ -10,6 +10,31 @@
 <body>
     <h1>Hello Team 1</h1>
     <p>We are going to build a poll app!</p>
+
+    <div class="question">
+        <!--we need to add template tags to add python code such as loops single curly  and duble curly is for data-->
+        <h1>This is for the teacher loop</h1>
+        {% for teacher in teachDict %}
+        <!--using a for loop here-->
+        <h2>{{teacher.firstName}}</h2>
+
+
+        {% endfor %}
+        <!--ending the forloop-->
+        <h1>This is for the question loop</h1>
+
+        {% for q in quest%}
+        <h2>{{q.question}}</h2>
+        <h2>{{q.teacher}}</h2>
+
+        {% endfor %}
+
+
+
+        <!--this is a template form form django-->
+        <br>
+
+    </div>
 </body>
 
 </html>
