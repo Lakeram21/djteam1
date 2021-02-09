@@ -17,4 +17,3 @@ class Answer(models.Model):
     question = models.ForeignKey(Question, on_delete=models.CASCADE)
     answer = models.CharField(max_length=128)
     votes = models.IntegerField() 
-   

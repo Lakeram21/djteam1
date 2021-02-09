@@ -26,7 +26,12 @@
         {% for q in quest%}
         <h2>{{q.question}}</h2>
         <h2>{{q.teacher}}</h2>
-
+            {% for a in answers %}
+            <p>{{a.answer}} - {{a.votes}}</p>
+            <form method="POST">
+                <button type="submit" name="vote" value="1">Vote!</button>
+            </form>
+            {% endfor %}
         {% endfor %}
 
 
