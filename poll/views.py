@@ -10,7 +10,6 @@ from django.shortcuts import render
 from .models import Teacher, Question, Answer # using the database
 
 
-# Create your views here.
 def page(request):
     #grabbing all the questions
     teacher = Teacher.objects.all() #getting all the information in questio
@@ -25,5 +24,8 @@ def vote(request):
     votes.save()
     return HttpResponseRedirect(request.META.get('HTTP_REFERER'))
     
-    
+def poll(request, question_num):
+    q = Question.object.get(question_num=question_num)
+    a = list(Answer.object.filter(question=q))
+    return render(request, 'index.html', {'question': q, 'answers': a})
 
