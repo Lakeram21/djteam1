@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Poll Detail</title>
+</head>
+<body>
+    <h4>{{ q.question }} by {{ q.teacher }}</h4>
+    {% for a in answers %}
+    <form method="POST">
+        <p>a.answer</p>
+        <input type="submit" value="1">
+    </form>
+    {% endfor %}
+    <a href="{% url 'poll:poll_results' q.question_num %}">Results</a>
+</body>
+</html>

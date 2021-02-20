@@ -6,38 +6,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">   
 </head>
-    <h1>Hello Team 1</h1>
-    <p>We are going to build a poll app!</p>
+    <h1>Polls</h1>
 
-    <div class="question">
-        <!--we need to add template tags to add python code such as loops single curly  and duble curly is for data-->
-        <h1>This is for the teacher loop</h1>
-        {% for teacher in teachDict %}
-        <!--using a for loop here-->
-        <h2>{{teacher.firstName}}</h2>
-
-
-        {% endfor %}
-        <!--ending the forloop-->
-        <h1>This is for the question loop</h1>
-
-        {% for q in question %}
-        <h2>{{q.question}}</h2>
-        <h2>{{q.teacher}}</h2>
-            {% for a in answers %}
-            <p>{{a.answer}} - {{a.votes}}</p>
-            <form method="POST">
-                <button type="submit" name="vote" value="1">Vote!</button>
-            </form>
-            {% endfor %}
-        {% endfor %}
-
-
-
-        <!--this is a template form form django-->
-        <br>
-
-    </div>
+    {% for q in questions %}
+        <div class="question">
+            <h4><a href="{% url 'poll:poll' q.question_num %}">{{ q.question }} by {{ q.teacher }}</a></h4>
+        </div>
+    {% endfor %}
 </body>
 
 </html>
