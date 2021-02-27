@@ -15,13 +15,9 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
-
-
-from poll import views # using the folder poll
-
-
+# from poll import views # using the folder poll => I don't think we need to have this here
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', include('poll.urls'))
+    path('', include('poll.urls')) # if the path is empty(default), take us to the urls file inside the poll folder
 ]

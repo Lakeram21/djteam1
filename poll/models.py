@@ -7,13 +7,17 @@ class Teacher(models.Model):
     def __str__(self):
         return self.firstName
 
- 
-
 class Question(models.Model):
     question = models.CharField(max_length=128)
     teacher = models.ForeignKey(Teacher, on_delete=models.CASCADE)
+
+    # def __str__(self):
+    #     return self.question
 
 class Answer(models.Model):
     question = models.ForeignKey(Question, on_delete=models.CASCADE)
     answer = models.CharField(max_length=128)
     votes = models.IntegerField() 
+
+    # def __str__(self):
+    #     return self.answer

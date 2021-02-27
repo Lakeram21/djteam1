@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Poll Vote</title>
+</head>
+
+<body>
+    <h4>{{ q.question }} by {{ q.teacher }}</h4>
+
+    <form method="POST">
+        {% csrf_token %}
+        {% for a in answers %}
+        <input type="radio" id="" name="answer" value="{{a.id}}">
+        <label for="">{{a.answer}}</label><br>
+        {% endfor %}
+        <input type="submit" value="submit">
+    </form>
+
+    <a href="{% url 'poll:results' q.id %}">Results</a>
+</body>
+
+</html>
