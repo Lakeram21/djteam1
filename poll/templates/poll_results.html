@@ -1,20 +1,12 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <meta charset="UTF-8">
-    <title>Poll Results</title>
-</head>
-<body>
+{% extends "base.html" %}
+{% block content %}
 
-    {% if answers %}
-    <!-- <p>My questions: {{ questions.id }}, {{answers.answer}}</p> -->
-   
-    {% for a in answers %}
-      <p>Answer: {{ a.answer }} {{a.votes}}</p>
-    {% endfor %}
-    
-   
-   
+{% if answers %}
+<!-- <p>My questions: {{ questions.id }}, {{answers.answer}}</p> -->
+
+{% for a in answers %}
+<p>Answer: {{ a.answer }} {{a.votes}}</p>
+{% endfor %}
 {% endif %}
-</body>
-</html>
+
+{% endblock %}

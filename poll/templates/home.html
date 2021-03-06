@@ -1,16 +1,8 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <meta charset="UTF-8">
-    <title>Enter</title>
-</head>
-<body>
-    <!-- the name after url is the value we passed to the "name" keyword argument of the url(), urls.py -->
-   
-    {% for q in questions %}
-    <h1>{{q.question}}</h1>
-    <button><a href="{% url 'poll:results' q.id %}">View Results</a></button>
-    <button><a href="{% url 'poll:poll' q.id %}">Vote</a></button>
-    {% endfor %}
-</body>
-</html>
+{% extends "base.html" %}
+{% block content %}
+{% for q in questions %}
+<h1>{{q.question}}</h1>
+<button><a href="{% url 'poll:results' q.id %}">View Results</a></button>
+<button><a href="{% url 'poll:poll' q.id %}">Vote</a></button>
+{% endfor %}
+{% endblock %}

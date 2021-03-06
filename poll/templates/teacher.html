@@ -1,0 +1,9 @@
+{% extends "base.html" %}
+{% block content %}
+
+<p>Welcome Teacher {{teacher.firstName}} {{teacher.lastName}}! </p>
+<button><a href="{% url 'poll:teacher_create' teacher.id %}">Create Poll</a></button>
+<button><a href="#">Delete Poll</a></button>
+
+
+{% endblock %}

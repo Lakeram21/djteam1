@@ -54,6 +54,15 @@ def results(request, question_num):
     answers = Question.objects.get(id=question_num).answer_set.all()
     return render(request, 'poll_results.html', {'q': q, 'answers': answers})
 
+def teacher(request, teacher_id):
+    teacher = Teacher.objects.get(id=teacher_id)
+    return render(request, 'teacher.html', {'teacher': teacher})
+
+def teacher_create(request, teacher_id):
+    teacher = Teacher.objects.get(id=teacher_id)
+    return render(request, 'teacher_create.html', {'teacher': teacher})
+
+
 
 """
 def vote(request):
@@ -63,15 +72,3 @@ def vote(request):
     return HttpResponseRedirect(request.META.get('HTTP_REFERER'))
 """
 
-
-# def test(request, question_id):
-#     questions = Question.objects.all()
-#     answers = Question.objects.get(id=question_id).answer_set.all()
-#     # answers = Answer.objects.get(id=1)
-#     # qId = question_id
-
-#     return render(request, "test.html", {
-#         "questions": questions,
-#         "answers": answers,
-#     })  # attaching the data to the html with a dictionary and we do this using a template context)
-#     # return render(request, 'test.html', {})

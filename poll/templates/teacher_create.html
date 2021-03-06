@@ -1,0 +1,38 @@
+{% extends "base.html" %}
+{% block content %}
+
+<h1>Let's Create A Poll!</h1>
+
+<div>
+    <form action="/" method="POST" id="create_form">
+        {% csrf_token %}
+        <label for="question">Question:</label><br>
+        <input type="text" id="question" name="question"><br>
+        <label for="answer">Answer:</label><br>
+        <input type="text" id="answer" name="answer"><br>
+        <input type="submit" value="Submit">
+    </form>
+    <button onclick="addAnswer()">Add Answer</button>
+</div>
+
+<script type="text/javascript">
+
+function addAnswer() {
+    let newInput = document.getElementById("create_form")
+    // let label = document.createElement("label");
+    // label.for = "question";
+    let input = document.createElement("input");
+    input.type = "text";
+    input.name = "answer";
+    let linebreak = document.createElement("br");
+    // newInput.insertBefore(label, newInput.children[7]);
+    newInput.insertBefore(input, newInput.children[8]);
+    newInput.insertBefore(linebreak, newInput.children[8]);
+    // newInput.appendChild(label);
+    // newInput.appendChild(input);
+}
+
+
+</script>
+
+{% endblock %}

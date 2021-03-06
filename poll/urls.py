@@ -8,5 +8,7 @@ urlpatterns = [
     path('', views.home, name="home"), # empty(default) url, calls the home function in the views.py 
     path('index/', views.index, name='index'),
     path('polls/<int:question_num>', views.poll, name='poll'),
-    path('polls/<int:question_num>/results', views.results, name='results')
+    path('polls/<int:question_num>/results', views.results, name='results'),
+    path('teacher/<int:teacher_id>', views.teacher, name="teacher"),
+    path('teacher/<int:teacher_id>/create', views.teacher_create, name="teacher_create")
 ]
