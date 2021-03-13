@@ -60,6 +60,22 @@ def teacher(request, teacher_id):
 
 def teacher_create(request, teacher_id):
     teacher = Teacher.objects.get(id=teacher_id)
+ 
+    if request.method == "POST":
+        q= Question()
+        q.question = request.POST["question"]
+        q.teacher= teacher
+        q.save()
+
+        a= [Answer() for _ in range(6)]
+        a.answer = request.POST['answer']
+        for i in range(6):
+            a[i].answer = request.POST['answer'+i]
+            a[i].question = q
+            a[i].votes = 0
+            a[i].save()
+        return render(request, 'teacher.html', {"teacher":teacher})
+
     return render(request, 'teacher_create.html', {'teacher': teacher})
 
 

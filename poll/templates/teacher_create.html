@@ -9,7 +9,7 @@
         <label for="question">Question:</label><br>
         <input type="text" id="question" name="question"><br>
         <label for="answer">Answer:</label><br>
-        <input type="text" id="firstAnswer" name="answer"><br>
+        <input type="text" id="firstAnswer" name="answer0"><br>
         <input type="submit" value="Submit">
     </form>
     <button onclick="addAnswer()">Add Answer</button>
@@ -18,12 +18,13 @@
 
 <script type="text/javascript">
     function addAnswer() {
-        let newInput = document.getElementById("create_form")
+        let newInput = document.getElementById("create_form");
+        let answer = document.querySelectorAll("#answer");
         // let label = document.createElement("label");
         // label.for = "question";
         let input = document.createElement("input");
         input.type = "text";
-        input.name = "answer";
+        input.name = "answer" + answer.length / 2;
         input.id = "answer";
         let linebreak = document.createElement("br");
         linebreak.id = "answer";
@@ -32,6 +33,7 @@
         newInput.insertBefore(linebreak, newInput.children[8]);
         // newInput.appendChild(label);
         // newInput.appendChild(input);
+
     }
 
     function removeAnswer() {
