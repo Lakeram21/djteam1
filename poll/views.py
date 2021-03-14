@@ -39,9 +39,6 @@ def poll(request, question_num):
         return HttpResponseRedirect(str(a.question.id) + '/results')
         # return render(request, 'poll_results.html', {'q': Question.objects.get(id=question_num),
         #                                              'a': list(Answer.objects.filter(question=Question.objects.get(id=question_num)))})
-
-        # Process POST by incrementing the votes in the corresponding answer by 1 and redirect to the results page
-        pass
     else:  # GET
         q = Question.objects.get(id=question_num)
         a = list(Answer.objects.filter(question=q))
@@ -62,19 +59,21 @@ def teacher_create(request, teacher_id):
     teacher = Teacher.objects.get(id=teacher_id)
  
     if request.method == "POST":
-        q= Question()
+        q = Question()
         q.question = request.POST["question"]
-        q.teacher= teacher
+        print(request.POST["question"])
+        print("sssssss")
+        q.teacher = teacher
         q.save()
 
-        a= [Answer() for _ in range(6)]
-        a.answer = request.POST['answer']
+        a = [Answer() for _ in range(6)]
         for i in range(6):
-            a[i].answer = request.POST['answer'+i]
-            a[i].question = q
-            a[i].votes = 0
-            a[i].save()
-        return render(request, 'teacher.html', {"teacher":teacher})
+            if "answer" + str(i) in request.POST:
+                a[i].answer = request.POST["answer" + str(i)]
+                a[i].question = q
+                a[i].votes = 0
+                a[i].save()
+        return render(request, 'teacher.html', {"teacher": teacher})
 
     return render(request, 'teacher_create.html', {'teacher': teacher})
 

@@ -4,7 +4,7 @@
 <h1>Let's Create A Poll!</h1>
 
 <div>
-    <form action="/" method="POST" id="create_form">
+    <form method="POST" id="create_form">
         {% csrf_token %}
         <label for="question">Question:</label><br>
         <input type="text" id="question" name="question"><br>
@@ -24,7 +24,7 @@
         // label.for = "question";
         let input = document.createElement("input");
         input.type = "text";
-        input.name = "answer" + answer.length / 2;
+        input.name = "answer" + (answer.length + 2) / 2;
         input.id = "answer";
         let linebreak = document.createElement("br");
         linebreak.id = "answer";
