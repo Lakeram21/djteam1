@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+{% block content %}
+
+
+
+
+{% for q in question %}
+<form method="POST">
+    {% csrf_token %}
+    <label for="">{{q.question}}</label>
+    <input type="submit" value="Delete"><br>
+    <input type='hidden' name="delete" value="{{q.id}}">
+</form>
+{% endfor %}
+
+
+
+
+{% endblock %}

@@ -61,8 +61,7 @@ def teacher_create(request, teacher_id):
     if request.method == "POST":
         q = Question()
         q.question = request.POST["question"]
-        print(request.POST["question"])
-        print("sssssss")
+        
         q.teacher = teacher
         q.save()
 
@@ -77,6 +76,24 @@ def teacher_create(request, teacher_id):
 
     return render(request, 'teacher_create.html', {'teacher': teacher})
 
+def teacher_delete(request,teacher_id):
+    question = Question.objects.all()
+
+
+    if request.method == "POST":
+        
+        qid = request.POST['delete']
+        q= Question.objects.get(id=qid)
+
+        q.delete()
+        teacher = Teacher.objects.get(id=teacher_id)
+        return render(request, 'teacher.html', {"teacher": teacher})
+
+
+        
+
+    else:
+        return render(request, 'teacher_delete.html', {"question": question})
 
 
 """
