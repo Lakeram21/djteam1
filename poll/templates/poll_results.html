@@ -2,10 +2,8 @@
 {% block content %}
 
 {% if answers %}
-<!-- <p>My questions: {{ questions.id }}, {{answers.answer}}</p> -->
-
 {% for a in answers %}
-<p>Answer: {{ a.answer }} {{a.votes}}</p>
+<p>{{ a.answer }} {{a.votes}}</p>
 {% endfor %}
 {% endif %}
 
