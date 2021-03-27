@@ -9,26 +9,33 @@
     
 <style>
 body.first{
-  background-image: url("https://www.trickscity.com/wp-content/uploads/2016/11/wnYBZZt-1024x640.jpg");
+  background-image: url("https://wallpapercave.com/wp/wp2857322.jpg");
+  /*background-size: cover; 
+  background-repeat:  no-repeat;*/
   text-align: center;
-  color:white;
+  color:black;
   font-size: 16px;
 }
 
-.solid {
+p.solid {
   text-align: left;
-  color:white;
+  color:black;
 } 
+b.color{
+  color:black;
+  text-transform: uppercase;
+  line-height: 1.8;
+}
 </style>
 
 </head>
 
-<h1 class="solid">Django Poll Application</h1>
+<h1> <p class="solid">Django Poll Application</p></h1>
 
 <body class="first">
     <nav>
-        <a href="{% url 'poll:home' %}"><b>Home</b></a>
-        <a href="{% url 'poll:teacher' 4 %}"><b>Teacher</b></a>  
+        <a href="{% url 'poll:home' %}"><b class="color">Home</b></a>
+        <a href="{% url 'poll:teacher' 4 %}"><b class="color">Teacher</b></a>  
     </nav>
 
     {% block content %}
